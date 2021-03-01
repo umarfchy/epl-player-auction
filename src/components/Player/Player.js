@@ -10,6 +10,7 @@ const Player = (props) => {
             <h3>{name}</h3>
             <p>Role: {role}</p>
             <h4>Salary: {salary}</h4>
+            <button> Add Player</button>
         </div>
     );
 };
