@@ -6,16 +6,25 @@ import './Showcase.css'
 
 
 const Showcase = () => {
+    
     const [players, setPlayers] = useState([]);
-    const [ addePlayer, setAddedPlayer] = useState([]);
+    const [addedPlayer, setAddedPlayer] = useState([]);
 
+    // storing players data from json to players variable
     useEffect(() =>{
         setPlayers(playerData)
     }, [])
     
+    //handling add player event
     const handleAddPlayer = (player)=> {
-        const newAddedPlayer = [...addePlayer, player];
-        setAddedPlayer(newAddedPlayer);
+        // ensuring player added only once
+        if (!addedPlayer.includes(player) ) {
+            const newAddedPlayer = [...addedPlayer, player];
+            setAddedPlayer(newAddedPlayer);
+        }
+        else{
+            alert('Already added the player')
+        }
     }
 
 
@@ -28,7 +37,7 @@ const Showcase = () => {
             }
             </div>
             <div className = 'summaryContainer'>
-                <AuctionSummary addePlayer={addePlayer}>
+                <AuctionSummary addedPlayer={addedPlayer}>
                 </AuctionSummary>
             </div>
         </div>
